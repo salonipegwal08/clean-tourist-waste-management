@@ -27,13 +27,16 @@ app.use(cors({
     "http://127.0.0.1:5173",
     "https://clean-tourist-waste-management.vercel.app"
   ],
+  methods: ["GET","POST","PUT","DELETE","PATCH"],
   credentials: true
 }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(morgan('dev'));
+app.use(morgan("dev"));
+
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/dustbins', dustbinRoutes);
